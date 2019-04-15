@@ -1,0 +1,23 @@
+@import "~styles/mixins.scss";
+.Login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  width: 20%;
+  padding:15px 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  overflow: hidden;
+  .msg {
+    color: $color-black-1;
+    font-size: 12px;
+  }
+  .submit-item {
+    text-align: center;
+  }
+  .submit {
+    width: 100%;
+  }
+}

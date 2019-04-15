@@ -1,0 +1,118 @@
+@import "~styles/mixins.scss";
+.Home {
+  height: 100%;
+  .container {
+    height: 100%;
+    .ico {
+      color: $color-yellow-1;
+    }
+    .aside {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+        .iconfont {
+          //margin-left: -3px;
+          padding-right: 3px;
+        }
+      .el-icon-goods {
+        margin-left: -5px;
+      }
+      .el-icon-picture {
+        margin-left: -5px;
+      }
+      .el-menu-vertical-demo:not(.el-menu--collapse) {
+        width: 200px;
+        min-height: 400px;
+        height: 100%;
+      }
+
+      .el-menu--collapse {
+        height: 100%;
+      }
+    }
+
+    .container {
+      box-sizing: border-box;
+      padding-top: 50px;
+      margin-left: 200px;
+      transition: all .3s;
+
+      &.on {
+        margin-left: 65px;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin-left: 200px;
+        height: 50px;
+        transition: all .3s;
+        z-index: 1;
+        padding: 8px 15px;
+        box-sizing: border-box;
+        background-color: #fff;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &.on {
+          margin-left: 65px;
+        }
+
+        .search {
+          display: inline-block;
+          margin-right: 20px;
+
+        }
+
+        .down {
+          .person {
+            display: inline-block;
+            //display: table-cell;
+            cursor: pointer;
+            width: 100px;
+            line-height: 28px;
+            //vertical-align: middle;
+            .avatar {
+              width: 27px;
+              height: auto;
+              vertical-align: middle;
+              margin-right: 5px;
+            }
+
+            .username {
+              line-height: 28px;
+              display: inline-block;
+              vertical-align: middle;
+
+              max-width: 45px;
+              @include ellipsis;
+            }
+
+            .ico {
+              position: absolute;
+              right: 5px;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+
+        }
+
+      }
+
+      .home-main {
+        width: 100%;
+        padding: 15px 0;
+        box-sizing: border-box;
+        background-color: #eee;
+        height: 100%;
+      }
+    }
+  }
+}

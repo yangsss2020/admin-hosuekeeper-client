@@ -14,11 +14,19 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000/api', // 代理目标的基础路径
+        target: 'http://localhost:3001/api', // 代理目标的基础路径
         ws: true,
         changeOrigin: true,
         pathRewrite: { // 重写路径: 去掉路径中开头的'/api'
           '^/api': ''
+        }
+      },
+      '/users': {
+        target: 'http://localhost:3001/users', // 代理目标的基础路径
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { // 重写路径: 去掉路径中开头的'/api'
+          '^/users': ''
         }
       },
       '/foo': {
@@ -31,5 +39,9 @@ module.exports = {
       .set('@$', resolve('src'))
       .set('components', resolve('src/components'))
       .set('styles', resolve('src/common/styles'))
-  }
+  },
+  transpileDependencies: [ //echarts
+    'vue-echarts',
+    'resize-detector'
+  ]
 }

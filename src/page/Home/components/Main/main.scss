@@ -1,0 +1,97 @@
+@import "~styles/mixins.scss";
+
+.Main {
+  width: 100%;
+  height: 100%;
+
+  .panel {
+
+    .list {
+      width: 100%;
+
+      .list-item:nth-of-type(1) {
+        .left {
+          background-color: $color-yellow-1;
+        }
+      }
+
+      .list-item:nth-of-type(2) {
+        .left {
+          background-color: $color-blue-1;
+        }
+      }
+
+      .list-item:nth-of-type(3) {
+        .left {
+          background-color: $color-green-1;
+        }
+      }
+
+      .list-item:nth-of-type(4) {
+        .left {
+          background-color: $color-purple-1;
+        }
+      }
+
+      .list-item {
+        height: 100px;
+        padding: 0 15px;
+
+        .left {
+          height: 100%;
+          float: left;
+          width: 40%;
+          line-height: 100px;
+          text-align: center;
+
+          .iconfont {
+            font-size: 40px;
+            color: #fff;
+          }
+        }
+
+        .right {
+          height: 100%;
+          float: left;
+          width: 60%;
+          background-color: #fff;
+          display: flex;
+          align-items: center;
+          //align-content: center;
+          justify-content: center;
+          text-align: center;
+          color: $color-white-1;
+
+          .title {
+            font-size: 36px;
+            line-height: 46px;
+          }
+
+          .desc {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  .chart-earning {
+    width: 100%;
+    box-sizing: border-box;
+  .row{
+    width: 100%;
+    .item {
+      margin-top: 15px;
+      height: 100%;
+      padding: 0 15px;
+      box-sizing:border-box;
+    }
+  }
+    .echarts {
+      width: 100%;
+      padding: 15px 0 ;
+      background-color: #fff;
+      box-sizing:border-box;
+    }
+  }
+}

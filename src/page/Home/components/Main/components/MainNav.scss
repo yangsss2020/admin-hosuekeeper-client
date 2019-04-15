@@ -1,0 +1,45 @@
+@import "~styles/mixins.scss";
+
+.MainNav {
+  width: 100%;
+
+  .item {
+    padding: 0 15px;
+
+    .card-item {
+      margin-top: 15px;
+      height: 120px;
+      cursor: pointer;
+
+      .left {
+        float: left;
+        width: 30%;
+        text-align: center;
+        line-height: 120px;
+
+        .iconfont {
+          font-size: 40px;
+          color: $color-yellow-1;
+        }
+      }
+
+      .right {
+        width: 70%;
+        float: left;
+
+        .title {
+          margin-top: 30px;
+          font-size: 20px;
+          line-height: 30px;
+          color: $color-black-1;
+        }
+
+        .desc {
+          font-size: 14px;
+          color: $color-black-2;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}

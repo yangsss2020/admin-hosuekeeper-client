@@ -13,7 +13,11 @@ import {
   DECREMENT_SHOP_COUNT,
   CLEAR_SHOPCART,
   RECEIVE_ADDRESS,
-  RECEIVE_ORDER
+  RECEIVE_ORDER,
+  RECEIVE_ALLORDER,
+  RECEIVE_ALLUSER,
+  RECEIVE_ALLUSERS,
+  RECEIVE_ALLADDRESS
 } from './mutations-type'
 // import Vue from 'vue'
 
@@ -66,5 +70,17 @@ export default {
   },
   [RECEIVE_ORDER] (state, { order }) {
     state.order = order
+  },
+  [RECEIVE_ALLORDER] (state, { allorder }) {
+    state.allorder = allorder
+  },
+  [RECEIVE_ALLUSER] (state, { alluser }) {
+    state.alluser = alluser
+  },
+  [RECEIVE_ALLUSERS] (state, { allusers }) {
+    state.allusers = allusers
+  },
+  [RECEIVE_ALLADDRESS] (state, { alladdress }) {
+    state.alladdress = alladdress
   }
 }

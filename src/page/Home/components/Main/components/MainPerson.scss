@@ -1,0 +1,79 @@
+@import "~styles/mixins.scss";
+.MainPerson {
+.person-list {
+  padding-bottom: 20px;
+  .list-item {
+    padding: 0 15px;
+    box-sizing:border-box;
+    margin-top: 15px;
+    .timetodo {
+      background-color: #fff;
+      padding: 10px;
+      .time-title {
+        line-height: 30px;
+      }
+      .desc {
+        font-size: 14px;
+        color: $color-black-2;
+      }
+    }
+    &.right {
+      //padding-top: 20px;
+      .backlog {
+        .person-info {
+          width: 100%;
+          margin-bottom: 15px;
+          .avatar {
+            float: left;
+            width: 80px ;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 15px;
+            .img {
+              width: 100%;
+              height: auto;
+            }
+          }
+          .info {
+            float: left;
+            .name {
+              margin-top: 15PX;
+              font-size: 18px;
+              color: $color-black-1;
+              line-height: 32px;
+            }
+            .post {
+              font-size: 14px;
+              line-height: 28PX;
+              color: $color-black-2;
+            }
+          }
+
+        }
+        .item {
+          width: 100%;
+          line-height: 60px;
+          height: 60px;
+          cursor: pointer;
+          .ico {
+            float: left;
+            line-height: 60px;
+            color: $color-yellow-1;
+          }
+          .center {
+            float: left;
+            margin-left: 50px;
+            color: $color-black-2;
+            font-size: 14px;
+          }
+          .number {
+            float: right;
+            color: $color-green-1;
+          }
+        }
+      }
+    }
+  }
+}
+}

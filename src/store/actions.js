@@ -13,7 +13,11 @@ import {
   DECREMENT_SHOP_COUNT,
   CLEAR_SHOPCART,
   RECEIVE_ADDRESS,
-  RECEIVE_ORDER
+  RECEIVE_ORDER,
+  RECEIVE_ALLORDER,
+  RECEIVE_ALLUSER,
+  RECEIVE_ALLUSERS,
+  RECEIVE_ALLADDRESS
 } from './mutations-type'
 import {
   reqSwiper,
@@ -27,7 +31,11 @@ import {
   getShopcar,
   // setShopcar,
   getaddress,
-  getorder
+  getorder,
+  getallorder,
+  getalluser,
+  getallusers,
+  getalladdress
 } from '../api/index'
 
 export default {
@@ -122,6 +130,34 @@ export default {
       commit(RECEIVE_ORDER, { order: data.data })
     } else {
       commit(RECEIVE_ORDER, { order: [] })
+    }
+  },
+  async getallorder ({ commit }) {
+    const result = await getallorder()
+    if (result.code === 0) {
+      const allorder = result.data
+      commit(RECEIVE_ALLORDER, { allorder })
+    }
+  },
+  async getalluser ({ commit }) {
+    const result = await getalluser()
+    if (result.code === 0) {
+      const alluser = result.data
+      commit(RECEIVE_ALLUSER, { alluser })
+    }
+  },
+  async getallusers ({ commit }) {
+    const result = await getallusers()
+    if (result.code === 0) {
+      const allusers = result.data
+      commit(RECEIVE_ALLUSERS, { allusers })
+    }
+  },
+  async getalladdress ({ commit }) {
+    const result = await getalladdress()
+    if (result.code === 0) {
+      const alladdress = result.data
+      commit(RECEIVE_ALLADDRESS, { alladdress })
     }
   }
 }

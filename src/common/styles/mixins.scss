@@ -11,4 +11,22 @@
   white-space: nowrap;
 }
 
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+$color-yellow-1: #ff907e;
+$color-yellow-2: #febb78;
+$color-black-1:#4c5a80;
+$color-black-2:#8a92a9;
+$color-purple-1:#9593fe;
+$color-blue-1:#7acff7;
+$color-green-1:#42d39c;
+//$color-green-1:#42d39c;
+$color-white-1:#c6cad6;
+
+
 
