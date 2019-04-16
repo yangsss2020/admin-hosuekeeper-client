@@ -15,6 +15,7 @@
         </el-table-column>
         <el-table-column
           label="图标管理"
+          min-width="170px"
           class="img"
         >
           <template slot-scope="scope">
@@ -48,7 +49,7 @@ export default {
   components: { ShowSwiperEdit },
   data () {
     return {
-      BASE_URL: 'http://127.0.0.1:3001',
+      BASE_URL: 'http://admin.yangsss.xyz',
       editData: {}
     }
   },

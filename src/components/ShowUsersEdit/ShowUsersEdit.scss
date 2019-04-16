@@ -5,9 +5,9 @@
   .edit {
     background-color: #fff;
     position: fixed;
-    width: 40%;
-    left: 30%;
-    right: 30%;
+    width: 350px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 5%;
     z-index: 20;
     padding: 20px 15px;

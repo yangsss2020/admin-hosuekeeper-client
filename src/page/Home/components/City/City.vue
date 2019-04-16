@@ -35,7 +35,7 @@
         </el-table-column>
         <el-table-column
           label="图标管理"
-          width="100"
+          width="140px"
           class="img"
         >
           <template slot-scope="scope">
@@ -46,6 +46,7 @@
         </el-table-column>
         <el-table-column
           label="banner图"
+          width="200px"
           prop="imgBanner">
           <template slot-scope="scope">
             <div class="img-wrapper">
@@ -55,6 +56,7 @@
         </el-table-column>
         <el-table-column
           label="编辑"
+          min-width="160px"
           align="left">
           <!--<template slot="header" slot-scope="scope">-->
           <!--</template>-->

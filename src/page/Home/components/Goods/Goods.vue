@@ -39,6 +39,7 @@
         </el-table-column>
         <el-table-column
           label="图片"
+          min-width="170px"
           prop="imgBanner">
           <template slot-scope="scope">
             <div class="img-wrapper">
@@ -48,6 +49,7 @@
         </el-table-column>
         <el-table-column
           label="编辑"
+          min-width="160px"
           align="left">
           <template slot-scope="scope">
             <el-button

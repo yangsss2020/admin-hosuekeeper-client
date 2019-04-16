@@ -3,7 +3,8 @@
     <div class="container">
       <aside class="aside ">
         <el-menu default-active="1-4-1" class="el-menu-vertical-demo"
-                 :collapse="isCollapse" :router="true" :unique-opened="true" background-color="#fff"
+                 :collapse="isCollapse" :router="true" :unique-opened="true"
+                 background-color="#fff" menu-trigger="click" mode="horizontal "
                  text-color="#8a92a9" active-text-color="#4c5a80">
           <el-menu-item index="/home/main">
             <i class="iconfont ico">&#xe626;</i>
@@ -58,7 +59,7 @@
                 size="small"
               ></el-autocomplete>
             </div>
-            <el-dropdown class="down" @command="handleCommand">
+            <el-dropdown class="down" @command="handleCommand" trigger="click">
               <div class="person border">
                 <img :src="BASE_URL+userinfo.avatar" alt="" class="avatar" v-if="userinfo.avatar">
                 <span class="username">{{userinfo.name}}</span>
@@ -111,9 +112,9 @@ export default {
       // 调用 callback 返回建议列表的数据
       cb(results)
     },
-    // handleSelect (item) {
-    //   console.log(item)
-    // },
+    handleSelect (item) {
+      console.log(item)
+    },
     createFilter (queryString) {
       return (restaurant) => {
         return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)

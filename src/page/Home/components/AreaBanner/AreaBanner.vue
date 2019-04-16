@@ -16,9 +16,12 @@
           <el-table-column
             label="图标管理"
             class="img"
+            min-width="170px"
           >
-            <template slot-scope="scope">
-              <img src="../../img/01.jpg" alt="">
+            <template >
+              <div class="img-wrapper">
+                <img src="../../img/01.jpg" alt="" class="img">
+              </div>
             </template>
           </el-table-column>
           <el-table-column
