@@ -14,10 +14,17 @@
             <i class="iconfont ico">&#xe687;</i>
             <span>区县管理</span>
           </el-menu-item>
-          <el-menu-item index="/home/goods">
-            <i class="el-icon-goods ico"></i>
-            <span>商品管理</span>
-          </el-menu-item>
+          <el-submenu index="4">
+            <template slot="title">
+              <i class="el-icon-goods ico"></i>
+              <span slot="title">商品管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="/home/homebanner">商品列表</el-menu-item>
+              <el-menu-item index="/home/areabanner">商品分类</el-menu-item>
+              <el-menu-item index="/home/areabanner">添加商品</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-picture ico"></i>
@@ -164,6 +171,16 @@ export default {
   .el-dropdown-menu {
     width: 100px;
   }
+  .el-menu--collapse {
+    width: 40px !important;
+  }
+  .el-submenu__title {
+    padding: 0 10px !important;
+  }
+  .el-menu-item {
+    padding: 0 10px !important;
+  }
+
 </style>
 <style scoped lang="scss">
   @import "home";

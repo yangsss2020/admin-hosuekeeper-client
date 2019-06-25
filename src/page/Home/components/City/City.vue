@@ -1,8 +1,18 @@
 <template>
   <div class="City">
     <div class="city-wrapper">
+<!--    导航栏-->
       <el-row class="head">
-        <el-col :xs="24" :sm="18" class="title">城市管理</el-col>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
+        <hr>
+      </el-row>
+<!--      搜索框-->
+      <el-row>
         <el-col :xs="24" :sm="6" class="serach">
           <el-autocomplete
             class="inline-input"
@@ -17,7 +27,10 @@
             </template>
           </el-autocomplete>
         </el-col>
+
       </el-row>
+<!--      <hr>-->
+<!--      表单区-->
       <el-table class="city-list"
                 :data="areaIndex"
                 style="width: 100%">

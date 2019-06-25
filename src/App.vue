@@ -9,5 +9,6 @@
 <style lang="scss">
   #app {
     height: 100%;
+    font-size: 12px;
   }
 </style>

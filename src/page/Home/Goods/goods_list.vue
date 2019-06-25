@@ -1,49 +1,69 @@
 <template>
-  <div class="Goods">
+  <div class="City">
     <div class="city-wrapper">
+      <!--    导航栏-->
       <el-row class="head">
-        <el-col :xs="24" :sm="18" class="title">商品管理</el-col>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
+        <hr>
+      </el-row>
+      <!--      搜索框-->
+      <el-row>
         <el-col :xs="24" :sm="6" class="serach">
           <el-autocomplete
             class="inline-input"
             v-model="keywords"
             :fetch-suggestions="querySearch"
-            placeholder="搜索商品"
+            placeholder="搜索城市"
             :trigger-on-focus="false"
             size="mini"
           >
             <template slot-scope="{ item }">
-              <div class="fetchitem" @click="checkCity(item.describe)">{{ item.describe }}</div>
+              <div class="fetchitem" @click="checkCity(item.name)">{{ item.name }}</div>
             </template>
           </el-autocomplete>
         </el-col>
+
       </el-row>
+      <!--      <hr>-->
+      <!--      表单区-->
       <el-table class="city-list"
-                :data="productIndex"
+                :data="areaIndex"
                 style="width: 100%">
         <el-table-column
           label="ID"
           prop="id">
         </el-table-column>
         <el-table-column
-          label="名称"
-          prop="title">
+          label="地区"
+          prop="name">
         </el-table-column>
         <el-table-column
           label="描述"
           prop="describe">
         </el-table-column>
         <el-table-column
-          label="价格￥"
-          prop="pricea">
+          label="图标管理"
+          width="140px"
+          class="img"
+        >
+          <template slot-scope="scope">
+            <div class="img-wrapper1">
+              <img v-lazy="BASE_URL+scope.row.imgUrl" :key="BASE_URL+scope.row.imgUrl" class="img1">
+            </div>
+          </template>
         </el-table-column>
         <el-table-column
-          label="图片"
-          min-width="170px"
+          label="banner图"
+          width="200px"
           prop="imgBanner">
           <template slot-scope="scope">
             <div class="img-wrapper">
-              <img v-lazy="BASE_URL+scope.row.banner" alt="" :key="BASE_URL+scope.row.banner">
+              <img v-lazy="BASE_URL+scope.row.imgBanner" alt="" :key="BASE_URL+scope.row.imgBanner">
             </div>
           </template>
         </el-table-column>
@@ -51,6 +71,8 @@
           label="编辑"
           min-width="160px"
           align="left">
+          <!--<template slot="header" slot-scope="scope">-->
+          <!--</template>-->
           <template slot-scope="scope">
             <el-button
               size="mini"
@@ -66,7 +88,7 @@
       </el-table>
       <el-row class="footer">
         <div class="left">
-          显示 1 到 5 项，共 {{filterCity.length?productIndex.length:product.length}} 项
+          显示 1 到 5 项，共 {{filterCity.length?areaIndex.length:area.length}} 项
         </div>
         <div class="back" @click="shouAll">
           查看全部
@@ -76,22 +98,22 @@
             :layout=page
             :page-size="pageSize"
             @current-change="currentChange"
-            :total="filterCity.length?productIndex.length:product.length">
+            :total="filterCity.length?areaIndex.length:area.length">
           </el-pagination>
         </div>
       </el-row>
     </div>
-    <ShowGoodsEdit ref="showCity" :editData="editData"/>
+    <ShowCityEdit ref="showCity" :editData="editData"/>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import ShowGoodsEdit from '../../../../components/ShowGoodsEdit/ShowGoodsEdit'
+import { mapState } from 'vuex/types'
+import ShowCityEdit from 'components/ShowCityEdit/ShowCityEdit'
 
 export default {
-  name: 'Goods',
-  components: { ShowGoodsEdit },
+  name: 'City',
+  components: { ShowCityEdit },
   data () {
     return {
       tableData: [],
@@ -106,13 +128,13 @@ export default {
     }
   },
   computed: {
-    ...mapState(['product']),
-    productIndex () {
+    ...mapState(['area']),
+    areaIndex () {
       if (this.filterCity.length) {
         return this.filterCity
       } else {
-        const product = this.product
-        const arr = product.slice((this.index - 1) * 5, this.index * 5)
+        const area = this.area
+        const arr = area.slice((this.index - 1) * 5, this.index * 5)
         return arr
       }
     }
@@ -132,19 +154,19 @@ export default {
       this.index = index
     },
     querySearch (queryString, cb) {
-      const restaurants = this.product
+      const restaurants = this.area
       let results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants
       cb(results)
     },
     createFilter (queryString) {
       return (restaurant) => {
-        return (restaurant.describe.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
+        return (restaurant.name.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
       }
     },
     checkCity (val) {
       const arr = []
-      this.product.forEach(item => {
-        if (item.describe === val) {
+      this.area.forEach(item => {
+        if (item.name === val) {
           arr.push(item)
         }
       })
@@ -167,7 +189,7 @@ export default {
 <style lang="scss">
   .City {
     .el-table th, .el-table td {
-      padding: 2px 0;
+      padding: 6px 0;
     }
 
     .el-autocomplete-suggestion__wrap {
@@ -181,5 +203,5 @@ export default {
 
 </style>
 <style scoped lang="scss">
-  @import "Goods";
+  @import "goods_list";
 </style>
